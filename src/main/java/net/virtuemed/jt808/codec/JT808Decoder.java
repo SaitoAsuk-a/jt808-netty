@@ -56,6 +56,8 @@ public class JT808Decoder extends ByteToMessageDecoder {
 
     /**
      * 将接收到的原始转义数据还原
+     * 0x7d 0x01 -> 0x7d
+     * 0x7d 0x02 -> 0x7e
      *
      * @param raw
      * @return
@@ -101,7 +103,6 @@ public class JT808Decoder extends ByteToMessageDecoder {
                 packet = new DataPacket(bb);
                 break;
         }
-        packet.parse();
         return packet;
     }
 

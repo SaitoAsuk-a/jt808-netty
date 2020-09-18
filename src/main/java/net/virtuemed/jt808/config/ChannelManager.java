@@ -17,6 +17,9 @@ import java.util.concurrent.ConcurrentHashMap;
  * @Author: Zpsw
  * @Date: 2019-05-16
  * @Description: 使用ChannelGroup管理Channel, 维护terminalPhone->ChannelId->Channel 一对一映射关系
+ * 定义了一个ChannelFutureListener，当channel关闭时，会执行这个回调，
+ * 帮助我们维护自己的channelIdMap不至于太过臃肿，提升效率，DefaultChannelGroup中也是如此，所以不必担心Channel都不存在了 还占用着内存这种情况。
+ * 另外我们可以将DefaultChannelGroup提供出去，以便某些时候进行广播。
  * @Version: 1.0
  */
 @Slf4j
